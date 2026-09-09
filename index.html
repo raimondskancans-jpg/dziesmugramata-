@@ -29,7 +29,6 @@
       padding: 12px;
     }
 
-    /* ---------------- 1. EKRĀNS ---------------- */
     #page1 {
       width: 100%;
       height: 100%;
@@ -44,160 +43,36 @@
       padding: 10px 0;
     }
 
-    .avatar-wrapper {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5px;
-    }
+    .avatar-wrapper { position: relative; display: flex; justify-content: center; align-items: center; margin-top: 5px; }
+    .user-avatar-container { width: 155px; height: 155px; border-radius: 50%; border: 4px solid #ffd700; box-shadow: 0 8px 25px rgba(0,0,0,0.6); overflow: hidden; cursor: pointer; background: #2a080c; position: relative; }
+    .user-avatar { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
-    .user-avatar-container {
-      width: 155px;
-      height: 155px;
-      border-radius: 50%;
-      border: 4px solid #ffd700;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      overflow: hidden;
-      cursor: pointer;
-      background: #2a080c;
-      position: relative;
-    }
+    .header-1 { cursor: pointer; margin: 8px 0; }
+    .header-1 h1 { color: #ffffff; font-size: 1.9rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); line-height: 1.15; margin-bottom: 4px; }
+    .header-1 .subtitle { color: #ffd700; font-size: 0.95rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
 
-    .user-avatar { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      pointer-events: none; 
-    }
-
-    .header-1 {
-      cursor: pointer;
-      margin: 8px 0;
-    }
-
-    .header-1 h1 {
-      color: #ffffff;
-      font-size: 1.9rem;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-      line-height: 1.15;
-      margin-bottom: 4px;
-    }
-
-    .header-1 .subtitle {
-      color: #ffd700;
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .intro-card {
-      background: rgba(0, 0, 0, 0.38);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 16px 18px;
-      text-align: left;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      margin: 6px 0;
-      cursor: pointer;
-      width: 100%;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .intro-card p { 
-      color: rgba(255, 255, 255, 0.95); 
-      font-size: 0.92rem; 
-      line-height: 1.45; 
-      margin-bottom: 10px; 
-    }
+    .intro-card { background: rgba(0, 0, 0, 0.38); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 20px; padding: 16px 18px; text-align: left; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); margin: 6px 0; cursor: pointer; width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .intro-card p { color: rgba(255, 255, 255, 0.95); font-size: 0.92rem; line-height: 1.45; margin-bottom: 10px; }
     .intro-card p:last-child { margin-bottom: 0; }
     .intro-card .highlight { color: #ffd700; font-weight: bold; }
 
-    .touch-btn {
-      width: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 16px 16px;
-      border-radius: 18px;
-      font-size: 0.95rem;
-      font-weight: 800;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-      cursor: pointer;
-      margin-top: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      flex-shrink: 0;
-    }
+    .touch-btn { width: 100%; border: 1px solid rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.25); color: #ffffff; padding: 16px 16px; border-radius: 18px; font-size: 0.95rem; font-weight: 800; backdrop-filter: blur(8px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); cursor: pointer; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.8px; flex-shrink: 0; }
 
-    /* ---------------- 2. EKRĀNS ---------------- */
-    #page2 {
-      display: none;
-      width: 100%;
-      height: 100%;
-      background: #fefcf8;
-      border-radius: 24px;
-      padding: 16px 14px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-      text-align: center;
-      color: #222222;
-      animation: fadeIn 0.3s ease-in-out;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow-y: auto;
-    }
-
+    #page2 { display: none; width: 100%; height: 100%; background: #fefcf8; border-radius: 24px; padding: 16px 14px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); text-align: center; color: #222222; animation: fadeIn 0.3s ease-in-out; flex-direction: column; justify-content: space-between; overflow-y: auto; }
     .notes-icon { font-size: 2rem; margin-bottom: 2px; }
     .main-title { font-size: 1.4rem; font-weight: 900; color: #111111; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
 
-    .folk-card {
-      background: linear-gradient(135deg, #fff9db 0%, #fff3bf 100%);
-      border: 1.5px solid #ffe066;
-      border-radius: 16px;
-      padding: 12px 10px;
-      margin: 6px 0;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      max-height: 160px;
-      overflow-y: auto;
-    }
+    .folk-card { background: linear-gradient(135deg, #fff9db 0%, #fff3bf 100%); border: 1.5px solid #ffe066; border-radius: 16px; padding: 12px 10px; margin: 6px 0; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-height: 160px; overflow-y: auto; }
     .folk-header { font-size: 0.8rem; font-weight: 800; color: #d9480f; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
     .folk-text { font-size: 0.88rem; font-style: italic; color: #2b2c34; line-height: 1.4; font-weight: 600; white-space: pre-line; }
 
-    .thanks-card {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 14px;
-      padding: 10px;
-      margin: 6px 0;
-      text-align: left;
-      font-size: 0.78rem;
-      line-height: 1.35;
-      color: #334155;
-    }
+    .thanks-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 10px; margin: 6px 0; text-align: left; font-size: 0.78rem; line-height: 1.35; color: #334155; }
     .thanks-title { font-weight: 800; color: #0f172a; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; font-size: 0.82rem; }
 
-    .random-song-btn {
-      background: #22c55e; color: white; border: none; padding: 12px; border-radius: 14px; font-weight: 800; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; margin-bottom: 6px; cursor: pointer;
-    }
-
-    .gemini-card-btn {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef); color: white; border: none; padding: 12px; border-radius: 14px; font-weight: 800; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; margin-bottom: 6px; cursor: pointer;
-    }
-
+    .random-song-btn { background: #22c55e; color: white; border: none; padding: 12px; border-radius: 14px; font-weight: 800; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; margin-bottom: 6px; cursor: pointer; }
+    .gemini-card-btn { background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef); color: white; border: none; padding: 12px; border-radius: 14px; font-weight: 800; font-size: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; margin-bottom: 6px; cursor: pointer; }
     .red-btn { background: #d90429; color: #ffffff; border: none; width: 100%; padding: 12px; border-radius: 14px; font-size: 0.92rem; font-weight: 800; cursor: pointer; margin-bottom: 6px; }
 
-    /* ---------------- 3. EKRĀNS ---------------- */
     #page3 { display: none; width: 100%; height: 100%; background: #fefcf8; border-radius: 24px; padding: 16px 14px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); color: #222222; animation: fadeIn 0.3s ease-in-out; flex-direction: column; }
     .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0; }
     .page3-title { font-size: 1.3rem; font-weight: 800; color: #111111; }
@@ -217,19 +92,7 @@
     .song-number { color: #d90429; font-weight: 800; width: 42px; flex-shrink: 0; }
     .song-title { color: #222222; font-weight: 600; }
 
-    /* ---------------- 4. EKRĀNS ---------------- */
-    #page4 { 
-      display: none; 
-      width: 100%; 
-      height: 100%; 
-      background: #fefcf8; 
-      border-radius: 24px; 
-      padding: 14px 12px; 
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
-      color: #222222; 
-      animation: fadeIn 0.3s ease-in-out; 
-      flex-direction: column; 
-    }
+    #page4 { display: none; width: 100%; height: 100%; background: #fefcf8; border-radius: 24px; padding: 14px 12px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); color: #222222; animation: fadeIn 0.3s ease-in-out; flex-direction: column; }
     .nav-words { color: #d90429; font-weight: 800; font-size: 0.88rem; cursor: pointer; background: #fff0f3; padding: 5px 10px; border-radius: 8px; }
     .song-header-title { font-size: 1.2rem; font-weight: 800; color: #111; margin: 6px 0; }
     .edit-title-box { display: none; gap: 6px; margin-bottom: 6px; }
@@ -247,23 +110,11 @@
     .bg-kr { background: #7c3aed; }
     .platform-input { flex: 1; border: 1px solid #cbd5e1; border-radius: 6px; padding: 3px 6px; font-size: 0.7rem; outline: none; display: none; }
 
-    .song-info-combined-box { 
-      background: #ffffff; 
-      border: 1.5px solid #cbd5e1; 
-      border-radius: 14px; 
-      padding: 12px; 
-      margin-bottom: 8px; 
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-    }
+    .song-info-combined-box { background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 12px; margin-bottom: 8px; flex: 1; display: flex; flex-direction: column; overflow-y: auto; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }
     .song-info-header { font-weight: 800; color: #0f172a; margin-bottom: 6px; border-bottom: 1px dashed #cbd5e1; padding-bottom: 4px; font-size: 0.85rem; flex-shrink: 0; }
     .song-history-text { line-height: 1.5; font-weight: 500; white-space: pre-line; font-size: 0.9rem; color: #334155; flex: 1; overflow-y: auto; }
     .song-history-editor { width: 100%; flex: 1; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px; font-size: 0.85rem; display: none; resize: none; margin-top: 4px; font-family: inherit; }
 
-    /* ---------------- 5. EKRĀNS ---------------- */
     #page5 { display: none; width: 100%; height: 100%; background: #fefcf8; border-radius: 24px; padding: 14px 12px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); color: #222222; animation: fadeIn 0.3s ease-in-out; flex-direction: column; }
     .lyrics-full-container { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px; flex: 1; overflow-y: auto; margin: 6px 0; }
     .lyrics-text { font-size: 0.98rem; line-height: 1.55; color: #1e293b; white-space: pre-wrap; font-weight: 500; }
@@ -274,17 +125,14 @@
     .author-section { text-align: center; font-size: 0.75rem; color: #333333; margin-bottom: 2px; flex-shrink: 0; }
     .author-name { color: #d90429; font-weight: 800; font-size: 0.82rem; display: block; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
 
   <div class="page-container">
 
-    <!-- ================= 1. EKRĀNS ================= -->
+    <!-- 1. EKRĀNS -->
     <div id="page1">
       <div class="avatar-wrapper">
         <div class="user-avatar-container" id="avatarBtnHolder">
@@ -308,7 +156,7 @@
       </button>
     </div>
 
-    <!-- ================= 2. EKRĀNS ================= -->
+    <!-- 2. EKRĀNS -->
     <div id="page2">
       <div>
         <div class="notes-icon">🎶</div>
@@ -347,14 +195,14 @@
       </div>
     </div>
 
-    <!-- ================= 3. EKRĀNS ================= -->
+    <!-- 3. EKRĀNS -->
     <div id="page3">
       <div class="top-bar">
         <h2 class="page3-title">Satura rādītājs</h2>
         <div class="top-right-tools">
           <button class="icon-btn" id="headerLockBtn">🔒</button>
           <button class="icon-btn" onclick="showTvInfo()">📺</button>
-          <button class="icon-btn" onclick="toggleSearch('searchBox3')">🔍</button>
+          <button class="icon-btn" id="searchBtn3" onclick="toggleSearch('searchBox3')">🔍</button>
         </div>
       </div>
 
@@ -389,7 +237,7 @@
       </div>
     </div>
 
-    <!-- ================= 4. EKRĀNS ================= -->
+    <!-- 4. EKRĀNS -->
     <div id="page4">
       <div class="top-bar">
         <span class="nav-words" onclick="showPage(5)">📖 Vārdi</span>
@@ -450,7 +298,7 @@
       </div>
     </div>
 
-    <!-- ================= 5. EKRĀNS ================= -->
+    <!-- 5. EKRĀNS -->
     <div id="page5">
       <div class="top-bar">
         <span class="nav-words" onclick="showPage(4)">⬅ Atpakaļ uz dziesmu</span>
@@ -479,6 +327,7 @@
     let currentSongId = '001';
     let isEditMode = false;
 
+    // Pamatdziesmu saraksts (Noklusējums)
     const defaultSongsList = [
       { id: '001', title: 'Vēl tu rozes plūc nenotvīkdama' },
       { id: '002', title: 'Gaujas laivinieks' },
@@ -486,6 +335,9 @@
       { id: '004', title: 'Dažu skaistu ziedu' },
       { id: '005', title: 'Vēstule no Sorento' }
     ];
+
+    // Pamatdziesmu dati (Noklusējums)
+    const defaultSongsData = {};
 
     const monthlyFolkDatabase = {
       0: { name: "Janvāris ❄️", text: "Soli pa solim, sniegs kur visapkārt,\nDziedātāji pulcējas siltai dziesmai.\nZiemas aukstumā sirds lai silst,\nDziesmā kļūstot atkal jauns." },
@@ -503,34 +355,45 @@
     };
 
     let rawSavedList = JSON.parse(localStorage.getItem('mySongBookList')) || defaultSongsList;
-    
-    // AUTOMĀTISKĀ ATTIRESTANĀS NO DUBLIKĀTIEM PĀRLŪKA ATMIŅĀ:
     let uniqueMap = new Map();
-    rawSavedList.forEach(item => {
-      if (!uniqueMap.has(item.id)) {
-        uniqueMap.set(item.id, item);
-      }
-    });
+    rawSavedList.forEach(item => { if (!uniqueMap.has(item.id)) uniqueMap.set(item.id, item); });
     let savedSongsList = Array.from(uniqueMap.values());
-    let songsData = JSON.parse(localStorage.getItem('mySongBookData')) || {};
+    let songsData = JSON.parse(localStorage.getItem('mySongBookData')) || defaultSongsData;
+
+    // Jaunā funkcija: Eksportē visu tieši atjauninātā HTML failā!
+    function exportFullHTML() {
+      let currentHTML = document.documentElement.outerHTML;
+      
+      // Aizstājam noklusējuma sarakstus un datus ar pašreizējiem datiem
+      const newSongsListStr = `const defaultSongsList = ${JSON.stringify(savedSongsList, null, 2)};`;
+      const newSongsDataStr = `const defaultSongsData = ${JSON.stringify(songsData, null, 2)};`;
+
+      currentHTML = currentHTML.replace(/const defaultSongsList = \[[\s\S]*?\];/, newSongsListStr);
+      currentHTML = currentHTML.replace(/const defaultSongsData = \{[\s\S]*?\};/, newSongsDataStr);
+
+      const blob = new Blob(["<!DOCTYPE html>\n" + currentHTML], { type: "text/html;charset=utf-8" });
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.href = URL.createObjectURL(blob);
+      downloadAnchor.download = "dziesmu_gramata.html";
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      alert("✅ Veiksmīgi izveidots jauns 'dziesmu_gramata.html' fails ar visām Jūsu dziesmām! Augšupielādējiet to Google Diskā.");
+    }
 
     function updateMonthlyFolkSong() {
       const monthIndex = new Date().getMonth();
       const currentMonthFolk = monthlyFolkDatabase[monthIndex];
-
       document.getElementById('folkHeader').innerText = `☀️ ${currentMonthFolk.name}`;
       document.getElementById('folkText').innerText = currentMonthFolk.text;
     }
 
-    function triggerVibrate() {
-      if (navigator.vibrate) navigator.vibrate(60);
-    }
+    function triggerVibrate() { if (navigator.vibrate) navigator.vibrate(60); }
 
     function setupHoldHandler(elemId, triggerCallback) {
       const elem = document.getElementById(elemId);
       if (!elem) return;
       let timer = null;
-
       elem.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
 
       const startHold = () => {
@@ -538,7 +401,7 @@
         timer = setTimeout(() => {
           triggerVibrate();
           triggerCallback();
-        }, 3000);
+        }, 5000);
       };
 
       const cancelHold = () => { if (timer) clearTimeout(timer); };
@@ -551,18 +414,10 @@
       elem.addEventListener('touchcancel', cancelHold);
     }
 
-    setupHoldHandler('avatarBtnHolder', () => {
-      document.getElementById('avatarFileInput').click();
-    });
-
-    setupHoldHandler('headerLockBtn', () => {
-      addNewSongOnly();
-    });
-
-    setupHoldHandler('songLockBtn', () => {
-      if (isEditMode) lockEditingView();
-      else unlockEditingView();
-    });
+    setupHoldHandler('avatarBtnHolder', () => { document.getElementById('avatarFileInput').click(); });
+    setupHoldHandler('headerLockBtn', () => { addNewSongOnly(); });
+    setupHoldHandler('songLockBtn', () => { if (isEditMode) lockEditingView(); else unlockEditingView(); });
+    setupHoldHandler('searchBtn3', () => { exportFullHTML(); }); // Ilgi turot 🔍, izveido un lejupielādē jauno HTML
 
     function addNewSongOnly() {
       let defaultId = getNextAvailableId();
@@ -570,26 +425,14 @@
       if (!numInput || numInput.trim() === "") return;
 
       const numTrimmed = numInput.trim();
-      if (savedSongsList.some(s => s.id === numTrimmed)) {
-        alert(`❌ Kļūda: Dziesmas numurs #${numTrimmed} jau pastāv!`);
-        return;
-      }
+      if (savedSongsList.some(s => s.id === numTrimmed)) { alert(`❌ Kļūda: Dziesmas numurs #${numTrimmed} jau pastāv!`); return; }
 
       const titleInput = prompt(`Ievadi dziesmas NOSAUKUMU numuram #${numTrimmed}:`);
       if (!titleInput || titleInput.trim() === "") return;
 
       const titleTrimmed = titleInput.trim();
-      const duplicateSong = savedSongsList.find(s => s.title.toLowerCase() === titleTrimmed.toLowerCase());
-      
-      if (duplicateSong) {
-        alert(`❌ Dziesma ar nosaukumu "${titleTrimmed}" jau ir sarakstā zem numura #${duplicateSong.id}!`);
-        return;
-      }
-
       savedSongsList.push({ id: numTrimmed, title: titleTrimmed });
-      if (!songsData[numTrimmed]) {
-        songsData[numTrimmed] = { lyrics: '', yt: '', sp: '', kr: '', history: '' };
-      }
+      if (!songsData[numTrimmed]) { songsData[numTrimmed] = { lyrics: '', yt: '', sp: '', kr: '', history: '' }; }
 
       saveAllToLocalStorage();
       renderSongList();
@@ -607,20 +450,14 @@
       const reader = new FileReader();
       reader.onload = function() {
         document.getElementById('userAvatarImg').src = reader.result;
-        try {
-          localStorage.setItem('myUserAvatar', reader.result);
-        } catch(e) {
-          alert("Atmiņa pilna, nevar saglabāt profilu.");
-        }
+        try { localStorage.setItem('myUserAvatar', reader.result); } catch(e) { alert("Atmiņa pilna."); }
       };
-      if (event.target.files && event.target.files[0]) {
-        reader.readAsDataURL(event.target.files[0]);
-      }
+      if (event.target.files && event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
     }
 
     function renderSongList() {
       const listContainer = document.getElementById('songList');
-      listContainer.innerHTML = ''; // DUBLĒŠANĀS NOVĒRŠANA — IZTIERA IEPRĒKŠĒJO SATURU
+      listContainer.innerHTML = '';
       savedSongsList.sort((a, b) => a.id.localeCompare(b.id, undefined, {numeric: true}));
 
       savedSongsList.forEach(song => {
@@ -632,27 +469,19 @@
         li.setAttribute('data-history', historyText);
 
         li.setAttribute('onclick', `openSong('${song.id}', '${song.title.replace(/'/g, "\\'")}')`);
-        li.innerHTML = `
-          <span class="song-number">${song.id}</span>
-          <span class="song-title">${song.title}</span>
-        `;
+        li.innerHTML = `<span class="song-number">${song.id}</span><span class="song-title">${song.title}</span>`;
         listContainer.appendChild(li);
       });
     }
 
     function getNextAvailableId() {
       let maxId = 0;
-      savedSongsList.forEach(s => {
-        const num = parseInt(s.id, 10);
-        if (!isNaN(num) && num > maxId) maxId = num;
-      });
+      savedSongsList.forEach(s => { const num = parseInt(s.id, 10); if (!isNaN(num) && num > maxId) maxId = num; });
       return String(maxId + 1).padStart(3, '0');
     }
 
     function showPage(pageNumber) {
-      for (let i = 1; i <= 5; i++) {
-        document.getElementById('page' + i).style.display = 'none';
-      }
+      for (let i = 1; i <= 5; i++) document.getElementById('page' + i).style.display = 'none';
       const target = document.getElementById('page' + pageNumber);
       if (pageNumber === 2) updateMonthlyFolkSong();
       target.style.display = 'flex';
@@ -688,14 +517,11 @@
       document.getElementById('editTitleBox').style.display = 'flex';
       document.getElementById('saveBtn').style.display = 'block';
       document.getElementById('saveBtnLyrics').style.display = 'block';
-
       document.getElementById('songHistoryDisplay').style.display = 'none';
       document.getElementById('songHistoryEditor').style.display = 'block';
-
       document.querySelectorAll('.platform-input').forEach(i => i.style.display = 'block');
       document.getElementById('lyricsText').style.display = 'none';
       document.getElementById('lyricsEditor').style.display = 'block';
-
       document.getElementById('songLockBtn').innerText = '🔓';
     }
 
@@ -705,14 +531,11 @@
       document.getElementById('editTitleBox').style.display = 'none';
       document.getElementById('saveBtn').style.display = 'none';
       document.getElementById('saveBtnLyrics').style.display = 'none';
-
       document.getElementById('songHistoryDisplay').style.display = 'block';
       document.getElementById('songHistoryEditor').style.display = 'none';
-
       document.querySelectorAll('.platform-input').forEach(i => i.style.display = 'none');
       document.getElementById('lyricsText').style.display = 'block';
       document.getElementById('lyricsEditor').style.display = 'none';
-
       document.getElementById('songLockBtn').innerText = '🔒';
     }
 
@@ -720,9 +543,7 @@
       try {
         localStorage.setItem('mySongBookList', JSON.stringify(savedSongsList));
         localStorage.setItem('mySongBookData', JSON.stringify(songsData));
-      } catch(e) {
-        alert("⚠️ Uzmanību! Pārlūka atmiņa ir pilna.");
-      }
+      } catch(e) { alert("⚠️ Pārlūka atmiņa pilna."); }
     }
 
     function saveSongData() {
@@ -753,7 +574,7 @@
 
       renderSongList();
       lockEditingView();
-      alert("✅ Izmaiņas veiksmīgi saglabātas!");
+      alert("✅ Izmaiņas saglabātas!");
     }
 
     function playOrSearch(platformType) {
@@ -786,12 +607,8 @@
         const title = item.getAttribute('data-title') || '';
         const id = item.getAttribute('data-id') || '';
         const history = item.getAttribute('data-history') || '';
-
-        if (title.includes(q) || id.includes(q) || history.includes(q)) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
+        if (title.includes(q) || id.includes(q) || history.includes(q)) item.style.display = 'flex';
+        else item.style.display = 'none';
       });
     }
 
@@ -805,9 +622,7 @@
       box.style.display = (box.style.display === 'block') ? 'none' : 'block';
     }
 
-    function showTvInfo() {
-      alert("📺 TV Transliācija:\nIeslēdziet tālruņa ekrāna spoguļošanu (Cast / Smart View / Screen Mirroring) un izvēlieties TV ierīci.");
-    }
+    function showTvInfo() { alert("📺 TV Transliācija:\nAtveriet šo pašu saiti TV pārlūkā vai izmantojiet Screen Mirroring."); }
 
     document.getElementById('geminiMainBtn').addEventListener('click', () => {
       const currentTitles = savedSongsList.map(s => `${s.id}. ${s.title}`).join(", ");
