@@ -360,11 +360,10 @@
     let savedSongsList = Array.from(uniqueMap.values());
     let songsData = JSON.parse(localStorage.getItem('mySongBookData')) || defaultSongsData;
 
-    // Jaunā funkcija: Eksportē visu tieši atjauninātā HTML failā!
+    // Funkcija: Sagatavo un lejupielādē failu ar VISĀM telefona atmiņā esošajām dziesmām
     function exportFullHTML() {
       let currentHTML = document.documentElement.outerHTML;
       
-      // Aizstājam noklusējuma sarakstus un datus ar pašreizējiem datiem
       const newSongsListStr = `const defaultSongsList = ${JSON.stringify(savedSongsList, null, 2)};`;
       const newSongsDataStr = `const defaultSongsData = ${JSON.stringify(songsData, null, 2)};`;
 
@@ -374,11 +373,11 @@
       const blob = new Blob(["<!DOCTYPE html>\n" + currentHTML], { type: "text/html;charset=utf-8" });
       const downloadAnchor = document.createElement('a');
       downloadAnchor.href = URL.createObjectURL(blob);
-      downloadAnchor.download = "dziesmu_gramata.html";
+      downloadAnchor.download = "index.html";
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
-      alert("✅ Veiksmīgi izveidots jauns 'dziesmu_gramata.html' fails ar visām Jūsu dziesmām! Augšupielādējiet to Google Diskā.");
+      alert("✅ Sagatavots atjauninātais 'index.html' fails ar visām Jūsu pievienotajām dziesmām!");
     }
 
     function updateMonthlyFolkSong() {
@@ -401,7 +400,7 @@
         timer = setTimeout(() => {
           triggerVibrate();
           triggerCallback();
-        }, 5000);
+        }, 3000);
       };
 
       const cancelHold = () => { if (timer) clearTimeout(timer); };
@@ -417,7 +416,7 @@
     setupHoldHandler('avatarBtnHolder', () => { document.getElementById('avatarFileInput').click(); });
     setupHoldHandler('headerLockBtn', () => { addNewSongOnly(); });
     setupHoldHandler('songLockBtn', () => { if (isEditMode) lockEditingView(); else unlockEditingView(); });
-    setupHoldHandler('searchBtn3', () => { exportFullHTML(); }); // Ilgi turot 🔍, izveido un lejupielādē jauno HTML
+    setupHoldHandler('searchBtn3', () => { exportFullHTML(); }); // Ilgi turot 🔍, lejupielādē jauno index.html failu
 
     function addNewSongOnly() {
       let defaultId = getNextAvailableId();
