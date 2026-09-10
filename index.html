@@ -169,7 +169,7 @@
 
         <div class="thanks-card">
           <div class="thanks-title">📖 Pateicība & Avots</div>
-          Liela daļa dziesmu tekstu un tradīciju šajā digitālajā krājumā balstīta uz **"Mārtiņa dziesmu grāmata"** (sastādītājs **Mārtiņš Zandbergs**, 1990. gads). Izsakām sirsnīgu pateicību par šajā izdevumā apkopoto un saglabāto apjomīgo dziesmu pūru, kā arī draugam **Andrim Ūdrim** par atbalstu grāmatas sagatavošanā un muzikālo pieredzi melodiju apdarē!
+          Liela daļa dziesmu tekstu un tradīciju šajā digitālajā krājumā balstīta uz <strong>"Mārtiņa dziesmu grāmata"</strong> (sastādītājs <strong>Mārtiņš Zandbergs</strong>, 1990. gads). Izsakām sirsnīgu pateicību par šajā izdevumā apkopoto un saglabāto apjomīgo dziesmu pūru, kā arī draugam <strong>Andrim Ūdrim</strong> par atbalstu grāmatas sagatavošanā un muzikālo pieredzi melodiju apdarē!
         </div>
       </div>
 
@@ -200,8 +200,8 @@
       <div class="top-bar">
         <h2 class="page3-title">Satura rādītājs</h2>
         <div class="top-right-tools">
-          <button class="icon-btn" id="headerLockBtn">🔒</button>
-          <button class="icon-btn" onclick="showTvInfo()">📺</button>
+          <button class="icon-btn" onclick="addNewSongOnly()" title="Pievienot dziesmu">➕</button>
+          <button class="icon-btn" onclick="exportFullHTML()" title="Lejupielādēt pilnu HTML priekš GitHub/TV">💾</button>
           <button class="icon-btn" id="searchBtn3" onclick="toggleSearch('searchBox3')">🔍</button>
         </div>
       </div>
@@ -242,8 +242,7 @@
       <div class="top-bar">
         <span class="nav-words" onclick="showPage(5)">📖 Vārdi</span>
         <div class="top-right-tools">
-          <button class="icon-btn" id="songLockBtn">🔒</button>
-          <button class="icon-btn" onclick="showTvInfo()">📺</button>
+          <button class="icon-btn" id="songLockBtn" onclick="toggleEditMode()">🔒</button>
           <button class="icon-btn" onclick="showPage(3)">⬅ Saraksts</button>
         </div>
       </div>
@@ -327,7 +326,7 @@
     let currentSongId = '001';
     let isEditMode = false;
 
-    // Pamatdziesmu saraksts (Noklusējums)
+    // --- ŠEIT IR GALVENIS DZIESMU SARAKSTS ---
     const defaultSongsList = [
       { id: '001', title: 'Vēl tu rozes plūc nenotvīkdama' },
       { id: '002', title: 'Gaujas laivinieks' },
@@ -336,31 +335,35 @@
       { id: '005', title: 'Vēstule no Sorento' }
     ];
 
-    // Pamatdziesmu dati (Noklusējums)
-    const defaultSongsData = {};
-
-    const monthlyFolkDatabase = {
-      0: { name: "Janvāris ❄️", text: "Soli pa solim, sniegs kur visapkārt,\nDziedātāji pulcējas siltai dziesmai.\nZiemas aukstumā sirds lai silst,\nDziesmā kļūstot atkal jauns." },
-      1: { name: "Februāris 🌨️", text: "Vēja pūsma logā klauvē,\nSveču gaisma istabā;\nSanākāt, bāleliņi,\nSildīsimies dziesmiņā!" },
-      2: { name: "Marts 🌿", text: "Pavasaris tālē sauc,\nSniegi kūst un strauti tek;\nCīrulis jau gaisā dzied,\nDziesmu sirdī modinot." },
-      3: { name: "Aprīlis 🌸", text: "Lieldieniņas atnākušas,\nLieli prieki bērniņiem;\nŠūposimies augsti gaisā,\nLai aug lini garumā!" },
-      4: { name: "Maijs 🍃", text: "Ziedējiņi, plaukumiņi,\nVisa zeme zaļumā;\nMeitas dzied un puiši spēlē\nPavasara vakarā." },
-      5: { name: "Jūnijs ☀️", text: "Visa laba jāņu zāle,\nKo par Jāņu nakti plūca;\nVisas bij zelta puķes,\nKas ziedēja pļaviņā." },
-      6: { name: "Jūlijs 🌾", text: "Šalc zaļais mežs, dzied meitenes,\nSiena laiks pie vārtiem klauvē;\nViegli un viegli saulīte tek\nPār zaļo ozoliņu." },
-      7: { name: "Augusts 🌻", text: "Dziedat, meitas, ko dziedat,\nDziedat skaisti parastā!\nLai skan meži, lai skan lauki,\nLai skan visa tēvu zeme!" },
-      8: { name: "Septembris 🍁", text: "Rudens nāk, lapas krīt,\nDzērves kliedz padebešos;\nBet mēs paši savā sētā\nSiltu dziesmu uzdziedam." },
-      9: { name: "Oktobris 🍂", text: "Mārtiņdiena klāt ir atkal,\nGailis dzied uz žoga malas;\nSaimnieks ver klēts durtiņas,\nLabi darbi pabeigti." },
-      10: { name: "Novembris 🕯️", text: "Sveču gaisma, klusi meži,\nTēvuzemei dziesma skan;\nCaur tumšāko laika posmu\nMūsu sirdis gaismu nes." },
-      11: { name: "Decembris 🎄", text: "Ziemassvētki sabraukuši\nRastās kamanās;\nAtnesuši prieku, mieru,\nZelta dziesmu istabā." }
+    // --- ŠEIT IR KATRAS DZIESMAS TEKSTI UN AKORDI ---
+    const defaultSongsData = {
+      '001': { lyrics: 'Vēl tu rozes plūc nenotvīkdama,\nVēl tu smaidot man pretī nāc...', history: 'Galda dziesma / Šlāgeris', yt: '', sp: '', kr: '' },
+      '002': { lyrics: 'Gaujas malā klusā,\nKurpes kājās man...', history: 'Tautasdziesma', yt: '', sp: '', kr: '' },
+      '003': { lyrics: 'Ūdensrozes zied un zied,\nVecpiebalgas ezerā...', history: 'Ballīte', yt: '', sp: '', kr: '' },
+      '004': { lyrics: 'Dažu skaistu ziedu\nTaupīju tev vien...', history: 'Klasiskais šlāgeris', yt: '', sp: '', kr: '' },
+      '005': { lyrics: 'Nāk nakts pār Sorento krastu,\nUn zvaigznes virs mums mirdz...', history: 'Mīlas dziesma', yt: '', sp: '', kr: '' }
     };
 
-    let rawSavedList = JSON.parse(localStorage.getItem('mySongBookList')) || defaultSongsList;
-    let uniqueMap = new Map();
-    rawSavedList.forEach(item => { if (!uniqueMap.has(item.id)) uniqueMap.set(item.id, item); });
-    let savedSongsList = Array.from(uniqueMap.values());
+    const monthlyFolkDatabase = {
+      0: { name: "Janvāris ❄️", text: "Soli pa solim, sniegs kur visapkārt,\nDziedātāji pulcējas siltai dziesmai." },
+      1: { name: "Februāris 🌨️", text: "Vēja pūsma logā klauvē,\nSveču gaisma istabā!" },
+      2: { name: "Marts 🌿", text: "Pavasaris tālē sauc,\nSniegi kūst un strauti tek." },
+      3: { name: "Aprīlis 🌸", text: "Lieldieniņas atnākušas,\nLieli prieki bērniņiem." },
+      4: { name: "Maijs 🍃", text: "Ziedējiņi, plaukumiņi,\nVisa zeme zaļumā." },
+      5: { name: "Jūnijs ☀️", text: "Visa laba jāņu zāle,\nKo par Jāņu nakti plūca." },
+      6: { name: "Jūlijs 🌾", text: "Šalc zaļais mežs, dzied meitenes,\nSiena laiks pie vārtiem klauvē." },
+      7: { name: "Augusts 🌻", text: "Dziedat, meitas, ko dziedat,\nDziedat skaisti parastā!" },
+      8: { name: "Septembris 🍁", text: "Rudens nāk, lapas krīt,\nDzērves kliedz padebešos." },
+      9: { name: "Oktobris 🍂", text: "Mārtiņdiena klāt ir atkal,\nGailis dzied uz žoga malas." },
+      10: { name: "Novembris 🕯️", text: "Sveču gaisma, klusi meži,\nTēvuzemei dziesma skan." },
+      11: { name: "Decembris 🎄", text: "Ziemassvētki sabraukuši\nRastās kamanās." }
+    };
+
+    // Ielādē datus (ja ir tālruņa atmiņā, ņem tos, ja nav — no faila koda)
+    let savedSongsList = JSON.parse(localStorage.getItem('mySongBookList')) || defaultSongsList;
     let songsData = JSON.parse(localStorage.getItem('mySongBookData')) || defaultSongsData;
 
-    // Funkcija: Sagatavo un lejupielādē failu ar VISĀM telefona atmiņā esošajām dziesmām
+    // Funkcija, kas ļauj ielādēt VISUS datus failā un lejupielādēt atjaunotu index.html
     function exportFullHTML() {
       let currentHTML = document.documentElement.outerHTML;
       
@@ -377,7 +380,7 @@
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
-      alert("✅ Sagatavots atjauninātais 'index.html' fails ar visām Jūsu pievienotajām dziesmām!");
+      alert("✅ Sagatavots jaunais index.html fails! Tagad ielādējiet to GitHub/Google Drive, lai arī TV un citās ierīcēs rādītu pilnu sarakstu.");
     }
 
     function updateMonthlyFolkSong() {
@@ -386,37 +389,6 @@
       document.getElementById('folkHeader').innerText = `☀️ ${currentMonthFolk.name}`;
       document.getElementById('folkText').innerText = currentMonthFolk.text;
     }
-
-    function triggerVibrate() { if (navigator.vibrate) navigator.vibrate(60); }
-
-    function setupHoldHandler(elemId, triggerCallback) {
-      const elem = document.getElementById(elemId);
-      if (!elem) return;
-      let timer = null;
-      elem.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
-
-      const startHold = () => {
-        triggerVibrate();
-        timer = setTimeout(() => {
-          triggerVibrate();
-          triggerCallback();
-        }, 3000);
-      };
-
-      const cancelHold = () => { if (timer) clearTimeout(timer); };
-
-      elem.addEventListener('mousedown', startHold);
-      elem.addEventListener('mouseup', cancelHold);
-      elem.addEventListener('mouseleave', cancelHold);
-      elem.addEventListener('touchstart', startHold, {passive: true});
-      elem.addEventListener('touchend', cancelHold);
-      elem.addEventListener('touchcancel', cancelHold);
-    }
-
-    setupHoldHandler('avatarBtnHolder', () => { document.getElementById('avatarFileInput').click(); });
-    setupHoldHandler('headerLockBtn', () => { addNewSongOnly(); });
-    setupHoldHandler('songLockBtn', () => { if (isEditMode) lockEditingView(); else unlockEditingView(); });
-    setupHoldHandler('searchBtn3', () => { exportFullHTML(); }); // Ilgi turot 🔍, lejupielādē jauno index.html failu
 
     function addNewSongOnly() {
       let defaultId = getNextAvailableId();
@@ -435,7 +407,7 @@
 
       saveAllToLocalStorage();
       renderSongList();
-      alert(`✅ Dziesma "${titleTrimmed}" (#${numTrimmed}) veiksmīgi pievienota!`);
+      alert(`✅ Dziesma "${titleTrimmed}" (#${numTrimmed}) pievienota!`);
     }
 
     function openRandomSong() {
@@ -443,15 +415,6 @@
       const randomIndex = Math.floor(Math.random() * savedSongsList.length);
       const song = savedSongsList[randomIndex];
       openSong(song.id, song.title);
-    }
-
-    function uploadAvatar(event) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        document.getElementById('userAvatarImg').src = reader.result;
-        try { localStorage.setItem('myUserAvatar', reader.result); } catch(e) { alert("Atmiņa pilna."); }
-      };
-      if (event.target.files && event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
     }
 
     function renderSongList() {
@@ -508,6 +471,11 @@
       document.getElementById('krUrlInput').value = song.kr || "";
 
       showPage(4);
+    }
+
+    function toggleEditMode() {
+      if (isEditMode) lockEditingView();
+      else unlockEditingView();
     }
 
     function unlockEditingView() {
@@ -621,8 +589,6 @@
       box.style.display = (box.style.display === 'block') ? 'none' : 'block';
     }
 
-    function showTvInfo() { alert("📺 TV Transliācija:\nAtveriet šo pašu saiti TV pārlūkā vai izmantojiet Screen Mirroring."); }
-
     document.getElementById('geminiMainBtn').addEventListener('click', () => {
       const currentTitles = savedSongsList.map(s => `${s.id}. ${s.title}`).join(", ");
       const promptText = `Tu esi mans personīgais Dziesmu Grāmata asistents. Šeit ir mans dziesmu saraksts: [${currentTitles}]. Palīdzi izvēlēties dziesmas svētkiem!`;
@@ -630,8 +596,6 @@
     });
 
     window.onload = function() {
-      const savedPic = localStorage.getItem('myUserAvatar');
-      if (savedPic) document.getElementById('userAvatarImg').src = savedPic;
       updateMonthlyFolkSong();
       renderSongList();
     };
